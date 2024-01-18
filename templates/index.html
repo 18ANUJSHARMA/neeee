@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+</head>
+<body>
+    <h1>Chat Application</h1>
+    <div id="chat">
+        <ul id="messages"></ul>
+        <input type="text" id="messageInput" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+    <script>
+        var username = prompt("Please enter your username:");
+        var room = prompt("Please enter the room name:");
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.emit('join', {'username': username, 'room': room});
+
+        function sendMessage() {
+            var messageInput = document.getElementById('messageInput');
+            var message = messageInput.value;
+            socket.emit('message', {'username': username, 'message': message, 'room': room});
+            messageInput.value = '';
+        }
+
+        socket.on('message', function(data) {
+            var messagesList = document.getElementById('messages');
+            var listItem = document.createElement('li');
+            listItem.appendChild(document.createTextNode(`${data.username}: ${data.message}`));
+            messagesList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Interaction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='character.css') }}">
+    <style>
+        /* Add your additional styles here if needed */
+        .character-container {
+            display: flex;
+            justify-content: center; /* Center the items horizontally */
+            align-items: center;
+            text-align: left;
+            margin: 20px;
+        }
+
+        #characterData {
+            display: none; /* Hide character data by default */
+            text-align: left;
+            margin-right: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        #imageContainer {
+            margin-right: 20px;
+        }
+
+        #image {
+            width: 300px; /* Set the fixed width for the image */
+            height: 360px; /* Set the fixed height for the image */
+            object-fit: cover; /* Maintain aspect ratio and cover container */
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        #toggleButton {
+            margin-top: 10px; /* Adjust the margin-top as needed */
+            width: 280;
+        }
+    </style>
+</head>
+<body >
+    <div style="border: 1px solid #ccc;" >
+        <div class="character-container">
+            <div id="characterData">
+                <h2>Character Data</h2>
+                <br> <br>
+                <p style="font-family: 'Times New Roman', Times, serif;">Background: <span id="backgroundData">{{ background[0] }}</span></p>
+                <br>
+                <!-- Add other character data fields as needed -->
+            </div>
+            
+            <div id="imageContainer">
+                <img src="static/images/{{ name }}.jpeg" alt="Image" id="image">
+                <button id="toggleButton" onclick="toggleCharacterData()">Character Data</button>
+            </div>
+        </div>
+       <div style="color: chartreuse;">
+        <div id="chat-input">
+            <br> <br>
+            <label for="mode-select">Mode:</label>
+            <select id="mode-select">
+                <option value="chat">Chat</option>
+                <option value="speech">Hand free</option>
+            </select>
+        </div>
+    </div>  
+        <br><br>
+        <div id="chatbox">
+            <h2>Chat Box</h2>
+        <div id="chat-input">
+            <div class="input-container">
+                <textarea id="user-message" placeholder="Type your message..."></textarea>
+                <button id="send-button">Send</button>
+                <button id="speech-button">Speak</button>
+            </div>
+         </div>
+       
+    </div>
+
+
+    
+   <a href="{{ url_for('characters') }}"{{ data }}><button>Your characters</button></a> 
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        function toggleCharacterData() {
+            var characterData = document.getElementById("characterData");
+            // Toggle the visibility of characterData
+            if (characterData.style.display === 'none' || characterData.style.display === '') {
+                characterData.style.display = 'block';
+            } else {
+                characterData.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

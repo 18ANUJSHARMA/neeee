@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=We, initial-scale=1.0">
+    <title>Sign up</title>
+  
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"poppins",sans-serif ;
+}
+
+body{
+    background: url('./static/images/image1.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.form-box{
+    position: relative;
+    width: 400px;
+    height: 550px;
+    border: 2px solid rgba(255,255,2550,.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box h2{
+    color: #fff;
+    text-align: center;
+    font-size: 32px;
+
+}
+
+.form-box .input-box{
+    position: relative;
+    margin: 40px 0;
+    width: 300px;
+    border-bottom: 2px solid #fff;
+
+}
+
+.form-box .input-box input{
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0 20px 0 5px;
+    color: #fff;
+    font-size: 16px;
+
+}
+
+i{
+    position: absolute;
+    color: #fff;
+    top: 13px;
+    right: 0;
+}
+input::placeholder{
+    color: #fff;
+}
+.btn{
+    color: #fff;
+    background:  #5385a6;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 3px 0 10px;
+}
+
+.btn a{
+    text-decoration: none;
+    color: #fff;
+}
+.a{
+    color: #fff;
+}
+
+.group{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.group span a{
+    color: #fff;
+    position: relative;
+    top: 15px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.group a:focus{
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+  
+     <!-- We have to create Registrations form  -->
+    <div class="container">
+        <div style="text-align: center;">
+            {% if error %}
+            <p style="color: red;">{{ error }}</p>
+            {% endif %}</div>
+        <div class="form-box">
+            <form method="post" name="Formfill">
+                <h2 >Sign up</h2>
+                <div class="input-box">
+                    <i class='bx bxs-user'></i>
+                    <label for="username"></label>
+                    <input type="text" id="username" name="username" placeholder="Username " required>
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-lock'></i>
+                    <label for="password"></label>
+                    <input type="Password" id="password" name="password" placeholder="Password" required>
+                 </div>
+                <div class="input-box">
+                    <i class='bx bxs-lock'></i>
+                    <label for="password"></label>
+                    <input type="Password" name="Confirm Password" placeholder="Confirm Password" required>
+                </div>
+                
+                <div class="button">
+                      <button class="btn" > <a href="{{ url_for('login') }}">Save</a></button>
+                      <!-- <input type="submit"  class="btn"  value="Register"> -->
+                </div>
+                
+                <div class="group">
+                    <!-- <span><a href="#">Forget-Password</a></span> -->
+                    <!-- <span><a href="#">Login</a></span> -->
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html> 

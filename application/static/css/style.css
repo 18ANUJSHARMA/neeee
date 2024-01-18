@@ -1,0 +1,77 @@
+/* custom-style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('../images/default_image/gif3.gif') no-repeat; /* Gradient background */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    background: #F56300;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 50px auto;
+    width: 80%;
+    
+  }
+  
+  h1, h2 {
+    color: #ffcc00; /* Header text color */
+  }
+  
+  label, p {
+    color: #ffffff; /* Label and paragraph text color */
+  }
+  
+  input[type="text"],
+  input[type="radio"],
+  select,
+  textarea {
+    background-color: #07cbfc; /* Input background color */
+    color: #ffffff; /* Input text color */
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  input[type="file"],
+  button {
+    background-color: #ffcc00; /* Button and file input background color */
+    color: #1a1a1a; /* Button and file input text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #ffdb4d; /* Hover state for buttons */
+  }
+  
+  .success {
+    color: #00cc00; /* Success message color */
+  }
+  
+  .error {
+    color: #ff0000; /* Error message color */
+  }
+  
+  .center {
+    text-align: center;
+  }
+  
+  /* #imageUpload {
+    display: none; /* Initially hide image upload section */
+   */
+  /* Add the following styles to adjust the checkbox alignment */
+label[for="uploadImage"] {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  label[for="uploadImage"] span {
+    margin-right: 10px;
+  }

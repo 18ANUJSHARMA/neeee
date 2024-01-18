@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHARACTER FORGE</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #3498db;
+            background: url('./static/images/default_image/gif3.gif') no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+
+        header {
+            display: center;
+            
+            text-align: center;
+            margin-bottom: 20px;
+
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: center;
+            width: 100%;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-top: -210px; /* Adjusted for better alignment */
+        }
+
+        nav {
+            margin-top: -150px; /* Adjusted for better alignment */
+            margin-left: 1300px;
+        }
+
+        a {
+            
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            margin-left: 20px;
+            
+        }
+
+        a:hover {
+            text-decoration:none;
+
+        }
+
+        .btn{
+            /* color: black;
+            background: transparent; */
+            width: 45%;
+            height: 50px;
+            background: #8f58c6;
+            border: none;
+            outline:none;
+            text-decoration: none;
+            border-radius: 10px;
+            box-shadow: 3px 0 10px;
+            cursor: pointer;
+            font-size: 16px;
+            color:#fff;
+            font-weight: 600;
+            margin:20px 0 15px;
+            
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="font-family: 'Times New Roman', Times, serif;">WELCOME TO CHARACTER FORGE</h1>
+        {% if not login %}
+            <nav><a href="{{ url_for('login') }}"><button class="btn">Sign in</button></a></nav>
+        {% endif %}
+    </header>
+
+    <main class="container">
+        {% if login %}
+            <!-- <h3>Let's get started.</h3> -->
+        {% else %}
+            <!-- <p>New user? <a href="{{ url_for('register') }}">Register</a></p> -->
+        {% endif %}
+    </main>
+</body>
+</html>

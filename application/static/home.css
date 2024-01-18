@@ -1,0 +1,75 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background:url('images/image7.jpg') no-repeat; /* Attractive background color */
+    color: #fff; /* Text color */
+
+
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0); /* Fully transparent background */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    margin-top: 20px;
+}
+
+.nav-pills {
+    display: flex;
+    justify-content: flex-start; /* Align to the left */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #fff; /* Text color for links */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    border: 2px solid #3498db; /* Border color */
+}
+
+.nav-link:hover, .active {
+    background-color: #2980b9; /* Darker blue color on hover and active */
+    color: #fff; /* Text color on hover and active */
+}
+
+.button {
+    background-color: #3498db; /* Button background color */
+    color: #fff; /* Text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: #2980b9; /* Darker blue color on hover */
+}
+
+hr {
+    margin-top: 20px;
+    border: none;
+    height: 1px;
+    background-color: #ecf0f1; /* Light background color */
+}

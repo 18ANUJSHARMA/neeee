@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create AI Character</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='custom-style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Create a New AI Character</h1>
+    {% if error_message %}
+      <p class="error">{{ error_message }}</p>
+    {% endif %}
+    {% if success_message %}
+      <p class="success">{{ success_message }}</p>
+    {% endif %}
+    <form method="POST" enctype="multipart/form-data">
+      <label for="characterName">Character Name:</label>
+      <input type="text" id="characterName" name="characterName" required><br><br>
+
+      <label for="generateOption">Background Text:</label><br>
+      <label for="generateOption">Generate Automatically</label><br>
+      <input type="radio" id="generateOption" name="backgroundOption" value="generate" checked>
+      <label for="writeOption">Write Background Text</label><br>
+      <input type="radio" id="writeOption" name="backgroundOption" value="write">
+     
+      <textarea id="backgroundText" name="backgroundText"></textarea><br><br>
+
+      <label for="voiceSelection">Voice:</label>
+      <select id="voiceSelection" name="voiceSelection">
+        {% for voice in available_voices %}
+          <option value="{{ voice.voice_id }}">
+            {{ voice.name }} ({{ voice.labels.age }}, {{ voice.labels.gender }})
+          </option>
+        {% endfor %}
+      </select>
+
+      <br><br>
+
+      <label for="uploadImage">Upload Image</label>
+      <p style="text-align: center;">Tick the box</p>
+      <input type="checkbox" id="uploadImage" name="uploadImage" onclick="toggleImageUpload()">
+       
+      <div id="imageUpload">
+        <label for="image">Choose Image:</label>
+        <input type="file" id="image" name="image"><br><br>
+      </div>
+      <br><br>
+      <button type="submit">Create Character</button>
+    </form>
+  </div>
+   <br> <br>
+  <div class="center">
+    <br>
+    <h2>Go to character page</h2>
+    <a href="{{ url_for('characters') }}"><button>Your Characters</button></a>
+  </div>
+
+  <script>
+    function toggleImageUpload() {
+      const uploadImageCheckbox = document.getElementById("uploadImage");
+      const imageUploadDiv = document.getElementById("imageUpload");
+
+      imageUploadDiv.style.display = uploadImageCheckbox.checked ? "block" : "none";
+    }
+
+    const radioButtons = document.querySelectorAll('input[name="backgroundOption"]');
+    const backgroundTextArea = document.getElementById("backgroundText");
+
+    radioButtons.forEach(button => {
+      button.addEventListener("change", () => {
+        backgroundTextArea.style.display = button.value === "write" ? "block" : "none";
+        backgroundTextArea.value = button.value === "generate" ? "" : backgroundTextArea.value;
+      });
+    });
+  </script>
+</body>
+</html>
+
+

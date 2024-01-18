@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Connection</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+    <input type="text" id="user-input">
+    <button id="send-button">Send</button>
+    <div id="output"></div>
+
+    <script>
+        var socket = io();
+
+        document.getElementById('send-button').addEventListener('click', function() {
+            var message = document.getElementById('user-input').value;
+            socket.emit('my_event', { message: message });
+            document.getElementById('user-input').value = '';
+        });
+
+        socket.on('my_response', function(data) {
+            var outputDiv = document.getElementById('output');
+            outputDiv.innerHTML += '<p>' + data.message + '</p>';
+        });
+    </script>
+</body>
+</html>

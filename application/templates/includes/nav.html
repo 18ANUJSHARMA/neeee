@@ -1,0 +1,15 @@
+
+
+<header>
+    <nav>
+        <ul class="nav nav-pills">           
+            <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link   {% if index %} active {% endif %}">Home</a></li>
+            <li class="nav-item"><a href="{{ url_for('characters') }}" class="nav-link  {% if characters %} active {% endif %}">Characters</a></li>
+
+        </ul>
+        
+    </nav>
+    
+    <hr style="clear:both">
+</header>
+

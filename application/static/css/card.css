@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    background : url( "https://www.animaker.com/hub/wp-content/uploads/2022/10/5S6813BUQO3A5PSQ-1.gif") no-repeat;
+    background-size: cover;
+    background-position: center;
+   /* background : url( "https://i.gifer.com/IrM.gif");*/
+}
+
+.container {
+    position: relative;
+    max-width: 1200px; /* Increased max-width for better responsiveness */
+    margin-top:  60px; /* Center the container */
+    display: flex;
+    align-items: flex-start; /* Align items at the start of the cross axis (top of the container) */
+    flex-wrap: wrap;
+    justify-content: space-around; /* Add space between cards */
+    padding: 30px;
+}
+
+.container a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+}
+
+.container .mycard {
+    position: relative;
+    width: 300px; /* Set a fixed width for each card */
+    height: 150px;
+    background: #f3f3f5;
+    margin: 30px 10px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 3px 50px rgba(0, 0, 0, 0.5);
+    transition: 0.5s ease-in-out;
+}
+
+.container .mycard:hover {
+    height: 300px;
+}
+
+.container .mycard .cimg {
+    position: relative;
+    width: 260px;
+    height: 200px;
+    top: -60px;
+    left: 20px;
+    box-shadow: 0 3px 50px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.container .mycard .cimg img {
+    max-width: 100%;
+    border-radius: 6px;
+    height: 100%;
+}
+
+.container .mycard .cdetail {
+    position: relative;
+    margin-top: -140px;
+    padding: 10px 15px;
+    text-align: center;
+    color: black;
+    font-family: monospace;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+
+}
+
+.container .mycard:hover .cdetail {
+    visibility: visible;
+    opacity: 1;
+    margin-top: -50px;
+}
+.cdetail h4 {
+    font-size: 20px;
+    color:  #0bf4f3;
+}
+h1 {
+    position: relative;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Megrim', cursive;
+    text-shadow: 0 0 5px #0bf4f3, 0 0 10px #0bf4f3, 0 0 20px #0bf4f3, 0 0 40px #0bf4f3, 0 0 80px #0bf4f3;
+}
+
+.frame {
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+button {
+    margin: 20px;
+}
+
+.custom-btn {
+    color: #fff;
+    width: auto;
+    height: 40px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+/* Button Styles (You can customize these styles) */
+.btn-15 {
+    color: #0921f8;
+    border: 1px solid #3a07f3;
+    box-shadow: 0 0 5px #fcfbfc, 0 0 5px #fcfbfc inset;
+    z-index: 1;
+}
+a{
+    color: white;
+}
+.btn-15:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    background: #03d3f8;
+    box-shadow: 0 0 20px #2b1591;
+    transition: all 0.3s ease;
+}
+
+.btn-15:hover {
+    color: #fff;
+}
+
+.btn-15:hover:after {
+    left: 0;
+    width: 100%;
+}
+
+.btn-15:active {
+    top: 2px;
+}
+
+.frame a {
+    text-decoration: none;
+    color: black;
+}
